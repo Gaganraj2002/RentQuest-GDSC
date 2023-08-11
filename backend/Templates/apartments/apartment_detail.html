@@ -1,0 +1,21 @@
+<!-- ... -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ apartment.title }}</h1>
+<p>Location: {{ apartment.location }}</p>
+<p>Price: {{ apartment.price }}</p>
+<p>Description: {{ apartment.description }}</p>
+
+{% for image in apartment.images.all %}
+<img src="{{ image.image.url }}" alt="{{ apartment.title }}" width="400">
+{% endfor %}
+
+<h2>Inquiries</h2>
+<ul>
+    {% for inquiry in inquiries %}
+    <li>{{ inquiry.name }}: {{ inquiry.message }}</li>
+    {% endfor %}
+</ul>
+<!-- ... -->
+{% endblock %}

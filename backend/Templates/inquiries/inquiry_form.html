@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RentQuest - Apartment Inquiry</title>
+</head>
+
+<body>
+    <h1>Inquire about an Apartment</h1>
+    <form method="post" action="{% url 'inquiry-create' %}">
+        {% csrf_token %}
+        <label for="apartment">Select an Apartment:</label>
+        <select name="apartment">
+            {% for apartment in apartments %}
+            <option value="{{ apartment.id }}">{{ apartment.title }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="message">Your Message:</label><br>
+        <textarea name="message" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Submit Inquiry</button>
+    </form>
+</body>
+
+</html>
