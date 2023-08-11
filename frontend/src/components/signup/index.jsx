@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 import { FaUserAlt, FaLock } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 const CFaUserAlt = chakra(FaUserAlt);
@@ -25,6 +26,7 @@ const CFaLock = chakra(FaLock);
 
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
 
     const handleShowClick = () => setShowPassword(!showPassword);
@@ -116,9 +118,11 @@ const Signup = () => {
                 </Box>
             </Stack>
             <Box>
-                New to us?{" "}
-                <Link color="teal.500" href="#">
-                    Sign Up
+                Already have an account?{" "}
+                <Link color="teal.500" onClick={() => {
+                    navigate("/login")
+                }}>
+                   Log In
                 </Link>
             </Box>
         </Flex>

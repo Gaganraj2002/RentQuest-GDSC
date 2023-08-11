@@ -18,12 +18,13 @@ import {
 } from "@chakra-ui/react";
 
 import { FaUserAlt, FaLock } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 export const Login = () => {
-
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
 
     const handleShowClick = () => setShowPassword(!showPassword);
@@ -99,7 +100,9 @@ export const Login = () => {
             </Stack>
             <Box>
                 New to us?{" "}
-                <Link color="teal.500" href="#">
+                <Link color="teal.500" onClick={() => {
+                    navigate("/signup")
+                }}>
                     Sign Up
                 </Link>
             </Box>

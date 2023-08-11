@@ -1,0 +1,32 @@
+#nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: tomato;
+    border-bottom: 1px solid white ;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+ol {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    text-decoration: none;
+    list-style: none;
+    margin-right: 2rem;
+}
+
+li {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+#search-box {
+   border: 2px solid white;
+    padding: 2px;
+    border-radius: 2rem;
+   background-color: tomato;
+}
+
