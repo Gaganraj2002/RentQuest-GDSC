@@ -24,7 +24,6 @@ class UserView(APIView):
             return Response(serializer.data)
 
 
-# Create your views here.
 class helloWorld(APIView):
     def get(self, request):
         return Response({"message": "Hello World!"})

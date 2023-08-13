@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.filters import SearchFilter
-from .models import Apartment
-from .serializers import ApartmentSerializer
+from .serializers import ApartmentSerializer, InquirySerializer
+from .models import Apartment, Inquiry
 
 
 class ApartmentSearchAPIView(generics.ListAPIView):
@@ -13,4 +13,24 @@ class ApartmentSearchAPIView(generics.ListAPIView):
         "description",
         "location",
         "price",
-    ]  # Add other fields as needed
+    ]
+
+
+class ApartmentList(generics.ListCreateAPIView):
+    queryset = Apartment.objects.all()
+    serializer_class = ApartmentSerializer
+
+
+class ApartmentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Apartment.objects.all()
+    serializer_class = ApartmentSerializer
+
+
+class InquiryList(generics.ListCreateAPIView):
+    queryset = Inquiry.objects.all()
+    serializer_class = InquirySerializer
+
+
+class InquiryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Inquiry.objects.all()
+    serializer_class = InquirySerializer

@@ -1,12 +1,12 @@
 from django.urls import path
-from .views import (
+from .views import apartmentView
+from .api_views import (
     ApartmentList,
     ApartmentDetail,
     InquiryList,
     InquiryDetail,
-    apartmentView,
+    ApartmentSearchAPIView,
 )
-from .api_views import ApartmentSearchAPIView
 
 
 urlpatterns = [
@@ -15,5 +15,5 @@ urlpatterns = [
     path("inquiries/", InquiryList.as_view(), name="inquiry-list"),
     path("inquiries/<int:pk>/", InquiryDetail.as_view(), name="inquiry-detail"),
     path("search/", ApartmentSearchAPIView.as_view(), name="apartment-search"),
-    path("apart/<int:id>", apartmentView, name="apartView"),
+    path("<int:id>/", apartmentView, name="apartView"),
 ]

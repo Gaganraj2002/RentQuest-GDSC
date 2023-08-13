@@ -12,11 +12,12 @@ class RegisterAPIView(APIView):
     @method_decorator(csrf_exempt)
     def post(self, request):
         username = request.data.get("username")
+        email = request.data.get("email")
         password = request.data.get("password")
 
-        if not username or not password:
+        if not username or not password or not email:
             return Response(
-                {"error": "Username and password are required."},
+                {"error": "Username, password, and email are required."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -26,7 +27,9 @@ class RegisterAPIView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        user = User.objects.create_user(username=username, password=password)
+        user = User.objects.create_user(
+            username=username, password=password, email=email
+        )
         login(request, user)
 
         return Response(status=status.HTTP_201_CREATED)

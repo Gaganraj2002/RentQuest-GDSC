@@ -9,7 +9,5 @@ router.register(r"inquiries", InquiryViewSet)
 urlpatterns = router.urls
 
 urlpatterns = [
-    # ...
     path("create/", create_inquiry, name="inquiry-create"),
-    # ...
 ]
