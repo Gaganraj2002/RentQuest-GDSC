@@ -53,7 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "corsheaders.middleware.CorsMiddleware",  # corsheaders
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 REST_FRAMEWORK = {
@@ -61,7 +61,7 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ]
 }
-CORS_ORIGIN_ALLOW_ALL = True  # corsheaders
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = "backend.urls"
 

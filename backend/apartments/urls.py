@@ -6,6 +6,9 @@ from .api_views import (
     InquiryList,
     InquiryDetail,
     ApartmentSearchAPIView,
+    ApartmentCreateAPIView,
+    SavedApartmentListCreateAPIView,
+    SavedApartmentDetailAPIView,
 )
 
 
@@ -16,4 +19,19 @@ urlpatterns = [
     path("inquiries/<int:pk>/", InquiryDetail.as_view(), name="inquiry-detail"),
     path("search/", ApartmentSearchAPIView.as_view(), name="apartment-search"),
     path("<int:id>/", apartmentView, name="apartView"),
+    path(
+        "api/apartments/create/",
+        ApartmentCreateAPIView.as_view(),
+        name="create-apartment",
+    ),
+    path(
+        "api/saved-apartments/",
+        SavedApartmentListCreateAPIView.as_view(),
+        name="saved-apartment-list",
+    ),
+    path(
+        "api/saved-apartments/<int:pk>/",
+        SavedApartmentDetailAPIView.as_view(),
+        name="saved-apartment-detail",
+    ),
 ]

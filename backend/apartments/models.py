@@ -32,3 +32,11 @@ class Inquiry(models.Model):
 
     def __str__(self):
         return f"Inquiry about {self.apartment.title} by {self.name}"
+
+
+class SavedApartment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.username} saved {self.apartment.title}"
