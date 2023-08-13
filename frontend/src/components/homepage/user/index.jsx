@@ -7,7 +7,6 @@ import HotelCard from '../../hotelCard'
 const User = () => {
     return (
         <>
-            <Nav />
             <div id="main">
                 <div id='remaining-main-body'>
                     <div style={{marginTop: "2rem"}}>

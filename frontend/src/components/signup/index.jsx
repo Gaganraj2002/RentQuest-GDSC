@@ -12,6 +12,7 @@ import {
     chakra,
     Box,
     Link,
+    Checkbox,
     Avatar,
     FormControl,
     InputRightElement
@@ -75,14 +76,10 @@ const Signup = () => {
                                         children={<CFaLock color="gray.300" />}
                                     />
                                     <Input
-                                        type={showPassword ? "text" : "password"}
-                                        placeholder="Password"
+                                        type={"text"}
+                                        placeholder="Username"
                                     />
-                                    <InputRightElement width="4.5rem">
-                                        <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                                            {showPassword ? "Hide" : "Show"}
-                                        </Button>
-                                    </InputRightElement>
+                                
                                 </InputGroup>
                             </FormControl>
                             <FormControl>
@@ -94,7 +91,7 @@ const Signup = () => {
                                     />
                                     <Input
                                         type={showPassword ? "text" : "password"}
-                                        placeholder="Confirm Password"
+                                        placeholder="Password"
                                     />
                                     <InputRightElement width="4.5rem">
                                         <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -104,6 +101,7 @@ const Signup = () => {
                                 </InputGroup>
 
                             </FormControl>
+                            <Checkbox >LandLord</Checkbox>
                             <Button
                                 borderRadius={0}
                                 type="submit"
