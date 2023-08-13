@@ -1,6 +1,8 @@
 import React from 'react'
+import {useNavigate} from "react-router-dom"
 import { Card, Image, Stack, Heading, Text, Button, CardBody, CardFooter } from '@chakra-ui/react'
-function HotelCard() {
+function HotelCard({props}) {
+    const navigate = useNavigate()
     return (
         <>
             <Card
@@ -17,23 +19,27 @@ function HotelCard() {
 
                 <Stack>
                     <CardBody>
-                        <Heading size='md'>hotel Name</Heading>
+                        <Heading size='md'>{props.title}</Heading>
 
                         {/* Hotel Rating */}
                         <Text style={{ paddingTop: "1px", fontWeight: "lighter" }}>
-                            Hotel Rating : 5
+                            {props.price} $
                         </Text>
 
                         {/* Hotel Address */}
                         <Text py='2'>
-                            Caffè latte is a coffee beverage of Italian origin made with espresso
-                            and steamed milk.
+                            {props.location}
+                        </Text>
+                        <Text py='2'>
+                           <b>Rooms: </b> {props.bedrooms}
                         </Text>
                     </CardBody>
 
                     <CardFooter>
-                        <Button variant='solid' colorScheme='blue'>
-                            Buy Latte
+                        <Button onClick={() => {
+                            navigate(`/${props.id}`)
+                        }} variant='solid' colorScheme='blue'>
+                           Book Now
                         </Button>
                     </CardFooter>
                 </Stack>
