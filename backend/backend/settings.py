@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "accounts",
     "frontend",
     "apartments",
-    "inquiries",
 ]
 
 MIDDLEWARE = [
